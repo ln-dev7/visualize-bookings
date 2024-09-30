@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Columns3, Grid } from "lucide-react";
 
 interface DayProps {
@@ -8,11 +8,14 @@ interface DayProps {
 }
 
 const Day: React.FC<DayProps> = ({ classNames, day }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <>
       <motion.div
         className={`relative flex items-center justify-center py-1 ${classNames}`}
         style={{ height: "4rem", borderRadius: 16 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         id={`day-${day.day}`}
       >
         <motion.div className="flex flex-col items-center justify-center">
@@ -21,10 +24,32 @@ const Day: React.FC<DayProps> = ({ classNames, day }) => {
           )}
         </motion.div>
         {day.meetingInfo && (
-          <div className="absolute bottom-1 right-1 size-5 rounded-full bg-zinc-700 text-white text-[10px] font-bold p-1 flex items-center justify-center">
+          <motion.div
+            className="absolute bottom-1 right-1 size-5 rounded-full bg-zinc-700 text-white text-[10px] font-bold p-1 flex items-center justify-center"
+            layoutId={`day-${day.day}-meeting-count`}
+            style={{
+              borderRadius: 999,
+            }}
+          >
             {day.meetingInfo.length}
-          </div>
+          </motion.div>
         )}
+
+        <AnimatePresence>
+          {day.meetingInfo && isHovered && (
+            <div className="absolute inset-0 size-full flex items-center justify-center">
+              <motion.div
+                className="bg-zinc-700 size-10 text-white text-xs font-bold p-1 flex items-center justify-center"
+                layoutId={`day-${day.day}-meeting-count`}
+                style={{
+                  borderRadius: 999,
+                }}
+              >
+                {day.meetingInfo.length}
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </>
   );
