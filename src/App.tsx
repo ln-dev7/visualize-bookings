@@ -216,14 +216,14 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-02",
+        date: "Wed, 2 Nov",
         time: "10:00 AM - 11:00 AM",
         title: "Design Review Meeting",
         participants: ["Alice Johnson", "Mark Lee"],
         location: "Zoom",
       },
       {
-        date: "2024-10-02",
+        date: "Wed, 2 Nov",
         time: "1:00 PM - 2:00 PM",
         title: "Sprint Planning",
         participants: ["Tom Hanks", "Jessica White"],
@@ -242,7 +242,7 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-06",
+        date: "Mon, 6 Nov",
         time: "10:00 AM - 11:00 AM",
         title: "Brainstorming Session",
         participants: ["Sara Parker", "Kumail Nanji"],
@@ -256,21 +256,21 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-08",
+        date: "Wed, 8 Nov",
         time: "2:00 PM - 3:00 PM",
         title: "Strategy Meeting",
         participants: ["Robert Green", "David Lee"],
         location: "Google Meet",
       },
       {
-        date: "2024-10-08",
+        date: "Wed, 8 Nov",
         time: "4:00 PM - 5:00 PM",
         title: "Budget Review",
         participants: ["Jessica White", "Tom Hanks"],
         location: "Microsoft Teams",
       },
       {
-        date: "2024-10-08",
+        date: "Wed, 8 Nov",
         time: "5:30 PM - 6:30 PM",
         title: "Q&A Session",
         participants: ["Bob Smith", "Emma Stone"],
@@ -295,7 +295,7 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-15",
+        date: "Wed, 15 Nov",
         time: "9:00 AM - 10:00 AM",
         title: "Client Feedback Session",
         participants: ["Sarah Parker", "Kumail Nanji"],
@@ -309,28 +309,28 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-04",
+        date: "Fri, 17 Nov",
         time: "9:00 AM - 10:00 AM",
         title: "Weekly Standup",
         participants: ["David Lee", "Sophia Young"],
         location: "Microsoft Teams",
       },
       {
-        date: "2024-10-04",
+        date: "Fri, 17 Nov",
         time: "11:00 AM - 12:00 PM",
         title: "Client Update",
         participants: ["Sara Parker", "Kumail Nanji"],
         location: "In-person",
       },
       {
-        date: "2024-10-04",
+        date: "Fri, 17 Nov",
         time: "2:00 PM - 3:00 PM",
         title: "Feature Demo",
         participants: ["Bob Smith", "Emma Stone"],
         location: "Zoom",
       },
       {
-        date: "2024-10-04",
+        date: "Fri, 17 Nov",
         time: "4:00 PM - 5:00 PM",
         title: "Feedback Session",
         participants: ["Mark Lee", "Alice Johnson"],
@@ -349,35 +349,35 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-10",
+        date: "Tue, 21 Nov",
         time: "11:00 AM - 12:00 PM",
         title: "Product Launch",
         participants: ["Alice Johnson", "Mark Lee"],
         location: "Zoom",
       },
       {
-        date: "2024-10-10",
+        date: "Tue, 21 Nov",
         time: "1:00 PM - 2:00 PM",
         title: "Customer Feedback",
         participants: ["Sara Parker", "Kumail Nanji"],
         location: "Google Meet",
       },
       {
-        date: "2024-10-10",
+        date: "Tue, 21 Nov",
         time: "3:00 PM - 4:00 PM",
         title: "Design Iteration",
         participants: ["David Lee", "Sophia Young"],
         location: "In-person",
       },
       {
-        date: "2024-10-10",
+        date: "Tue, 21 Nov",
         time: "5:00 PM - 6:00 PM",
         title: "Team Celebration",
         participants: ["Bob Smith", "Jessica White"],
         location: "Office Rooftop",
       },
       {
-        date: "2024-10-10",
+        date: "Tue, 21 Nov",
         time: "7:00 PM - 8:00 PM",
         title: "Happy Hour",
         participants: ["Tom Hanks", "Emma Stone"],
@@ -407,7 +407,7 @@ const DAYS: DayType[] = [
     classNames: "bg-[#1e1e1e] cursor-pointer",
     meetingInfo: [
       {
-        date: "2024-10-17",
+        date: "Thu, 30 Nov",
         time: "11:00 AM - 12:00 PM",
         title: "Brainstorming Session",
         participants: ["David Lee", "Sophia Young"],
