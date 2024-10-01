@@ -73,48 +73,120 @@ const App: React.FC = () => {
   const [moreView, setMoreView] = useState(false);
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-start md:justify-center px-4 py-10 bg-black">
-      <div className="relative mx-auto my-10 w-full max-w-lg">
-        <motion.div
-          key="calendar-view"
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0.5 }}
-          transition={{ duration: 0.15 }}
-          className="w-full flex-col flex gap-4"
-        >
-          <div className="w-full flex items-center justify-between">
-            <motion.h2 className="text-4xl mb-2 font-bold tracking-wider text-zinc-300">
-              LN <span className="opacity-50">2024</span>
-            </motion.h2>
-            <motion.button
-              className="flex items-center text-[#323232] relative border rounded-lg py-1 px-1.5 border-[#323232] gap-3"
-              onClick={() => setMoreView(!moreView)}
-            >
-              <Columns3 className=" z-[2]" />
-              <Grid className=" z-[2]" />
-              <div
-                className="absolute top-0 left-0 w-7 h-[85%] bg-white rounded-md duration-300 transition-transform"
-                style={{
-                  top: "50%",
-                  transform: moreView
-                    ? "translateY(-50%) translateX(40px)"
-                    : "translateY(-50%) translateX(4px)",
-                }}
-              ></div>
-            </motion.button>
-          </div>
-          <div className="grid grid-cols-7 gap-2">
-            {daysOfWeek.map((day) => (
-              <div
-                key={day}
-                className="text-xs text-white text-center bg-[#323232] py-1 px-0/5 rounded-xl"
+      <div className="relative mx-auto my-10 w-full flex-col lg:flex-row justify-center flex items-center gap-8">
+        <motion.div layout className="w-full max-w-lg">
+          <motion.div
+            key="calendar-view"
+            className="w-full flex-col flex gap-4"
+          >
+            <div className="w-full flex items-center justify-between">
+              <motion.h2 className="text-4xl mb-2 font-bold tracking-wider text-zinc-300">
+                LN <span className="opacity-50">2024</span>
+              </motion.h2>
+              <motion.button
+                className="flex items-center text-[#323232] relative border rounded-lg py-1 px-1.5 border-[#323232] gap-3"
+                onClick={() => setMoreView(!moreView)}
               >
-                {day}
-              </div>
-            ))}
-          </div>
-          <CalendarGrid />
+                <Columns3 className=" z-[2]" />
+                <Grid className=" z-[2]" />
+                <div
+                  className="absolute top-0 left-0 w-7 h-[85%] bg-white rounded-md duration-300 transition-transform"
+                  style={{
+                    top: "50%",
+                    transform: moreView
+                      ? "translateY(-50%) translateX(40px)"
+                      : "translateY(-50%) translateX(4px)",
+                  }}
+                ></div>
+              </motion.button>
+            </div>
+            <div className="grid grid-cols-7 gap-2">
+              {daysOfWeek.map((day) => (
+                <div
+                  key={day}
+                  className="text-xs text-white text-center bg-[#323232] py-1 px-0/5 rounded-xl"
+                >
+                  {day}
+                </div>
+              ))}
+            </div>
+            <CalendarGrid />
+          </motion.div>
         </motion.div>
+        <AnimatePresence mode="wait">
+          {moreView && (
+            <div className="w-full max-w-lg">
+              <motion.div
+                key="more-view"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.15 }}
+                className="w-full flex-col flex gap-4 mt-4"
+              >
+                <div className="w-full flex flex-col items-start justify-between">
+                  <motion.h2 className="text-4xl mb-2 font-bold tracking-wider text-zinc-300">
+                    Bookings
+                  </motion.h2>
+                  <p className="font-medium text-zinc-300/50">
+                    See upcoming and past events booked through your event type
+                    links.
+                  </p>
+                </div>
+                <div className="border-2 border-[#323232] flex flex-col items-start justify-start overflow-hidden rounded-xl shadow-md h-[620px]">
+                  {DAYS.filter((day) => day.meetingInfo).map((day, index) => (
+                    <div
+                      key={index}
+                      className={`py-0 border-b-2 border-[#323232] last:border-b-0 w-full`}
+                    >
+                      {day.meetingInfo &&
+                        day.meetingInfo.map((meeting, mIndex) => (
+                          <div
+                            key={mIndex}
+                            className="p-3 border-b last:border-b-0 border-[#323232]"
+                          >
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-sm text-white">
+                                {meeting.date}
+                              </span>
+                              <span className="text-sm text-white">
+                                {meeting.time}
+                              </span>
+                            </div>
+                            <h3 className="font-semibold text-lg mb-1 text-white">
+                              {meeting.title}
+                            </h3>
+                            <p className="text-sm text-zinc-600 mb-1">
+                              {meeting.participants.join(", ")}
+                            </p>
+                            <div className="flex items-center text-blue-500">
+                              <svg
+                                className="w-4 h-4 mr-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                />
+                              </svg>
+                              <span className="text-sm">
+                                {meeting.location}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
     </main>
   );
