@@ -170,8 +170,11 @@ const App: React.FC = () => {
                       .map((day) => (
                         <motion.div
                           key={day.day}
-                          className={`py-0 border-b-2 border-[#323232] last:border-b-0 w-full`}
+                          className={`py-0 border-b-2 border-[#323232] last:border-b-0 transition-colors duration-300 w-full`}
                           layout
+                          style={{
+                            background: hoveredDay === day.day ? "#1e1e1e" : "",
+                          }}
                         >
                           {day.meetingInfo &&
                             day.meetingInfo.map((meeting, mIndex) => (
